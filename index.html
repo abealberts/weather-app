@@ -41,10 +41,10 @@
                             <!-- Container for textinput + Go button -->
                             <div class="columns is-gapless">
                                 <div class="column">
-                                    <input class="input" type="text" placeholder="Text input">
+                                    <input class="input" type="text" placeholder="City Name" id="userSearch">
                                 </div>
                                 <div class="column is-4 centered">
-                                    <button class="button is-primary is-inverted is-outlined">Go</button>
+                                    <button class="button is-primary is-inverted is-outlined" id="searchButton">Go</button>
                                 </div>
                             </div>
                         </div>
@@ -66,18 +66,18 @@
             <!-- Right-side container for Current weather + 5-day forecast -->
             <div class="column is-8">
                 <div class="round has-background-primary p-2 mb-2">
-                    <h2 class="label has-text-white">Current Weather:</h2>
+                    <h2 class="label has-text-white">Now:</h2>
                     <div class="p-2" id="currentWeather">
                         <h1 class="title has-text-white" id="currentCity">City Name</h1>
                         <div class="columns is-centered">
                             <div class="column">
-                                <h2 class="title is-4 has-text-white" id="temp">12&deg;</h2>
+                                <h2 class="title is-4 has-text-white" id="currentTemp">12&deg;</h2>
                             </div>
                             <div class="column">
-                                <h2 class="subtitle is-5 has-text-white" id="wind">Wind: 6.2 MPH</h2>
+                                <h2 class="subtitle is-5 has-text-white" id="currentWind">Wind: 6.2 MPH</h2>
                             </div>
                             <div class="column">
-                                <h2 class="subtitle is-5 has-text-white" id="humidity">Humidity: 42%</h2>
+                                <h2 class="subtitle is-5 has-text-white" id="currentHumidity">Humidity: 42%</h2>
                             </div>
                         </div>
                     </div>
@@ -90,7 +90,7 @@
                 <div class="columns is-mobile">
                     <div class="column is-one-fifth-mobile">
                         <div class="has-background-primary round p-2" id="day1">
-                            <h1 class="title is-4 has-text-white">Mon</h1>
+                            <h1 class="title is-4 has-text-white forecastDay">Mon</h1>
                             <div class="columns">
                                 <div class="column">
                                     <h2 class="title is-5 has-text-white" id="temp">999&deg; 
