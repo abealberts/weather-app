@@ -1,21 +1,68 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="has-background-primary-light">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Weather App</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <link rel="stylesheet" href="./assets/style/style.css">
     <link rel="icon" href="./favicon.ico" type="image/x-icon">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> -->
   </head>
 
 
   <body>
+    <header>
+        <div class="columns is-centered mt-2">
+            <div class="column is-11">
+                <div class="has-background-primary-dark round p-2">
+                    <h1 class="title has-text-white centered">Weather Dashboard</h1>
+                    <h2 class="subtitle has-text-white centered">Powered by OpenWeatherMap</h2>
+                </div>
+            </div>
+        </div>
+    </header>
+
     <main>
-        <h1>Welcome to My Website</h1>  
+        <div class="columns is-centered">
+            <!-- Left-side container for search & history -->
+            <div class="column is-4">
+                    <div class="field round has-background-primary-dark p-2">
+                        <label class="label has-text-white">Search by City:</label>
+                        <div class="p-1">
+                            <!-- Container for textinput + Go button -->
+                            <div class="columns is-gapless">
+                                <div class="column">
+                                    <input class="input" type="text" placeholder="Text input">
+                                </div>
+                                <div class="column is-4 centered">
+                                    <button class="button is-primary is-inverted is-outlined">Go</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Nested Column for history section -->
+                    <div class="column p-0">
+                        <label class="label has-text-primary">Recent:</label>
+                        <!-- Container for appending the "historyCard" items -->
+                        <div id="history">
+                            <!-- Example of "historyCard" -->
+                            <div class="historyCard has-background-primary round p-2 mb-2">
+                                  <p class="title is-4 has-text-white">Placeholder City</p>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+
+            <!-- Right-side container for Current weather + 5-day forecast -->
+            <div class="column is-7">
+                <div class="round has-background-primary p-2">
+                    <h2 class="label">Current Weather:</h2>
+                </div>
+            </div>
+        </div>
     </main>
 	<script src="./assets/scripts/script.js"></script>
   </body>

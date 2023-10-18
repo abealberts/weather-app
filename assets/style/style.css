@@ -1,0 +1,17 @@
+.round {
+    border-radius: 10px;
+}
+
+.centered {
+    text-align: center;
+}
+
+.historyCard:hover {
+    background-color: hsl(171, 100%, 29%)!important;
+    cursor: pointer;
+}
+
+.historyCard:active {
+    background-color: hsl(171, 100%, 19%)!important;
+    cursor: pointer;
+}
