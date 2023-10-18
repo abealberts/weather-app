@@ -1,3 +1,9 @@
+header,
+main {
+    margin-left: 6px;
+    margin-right: 6px;
+}
+
 .round {
     border-radius: 10px;
 }

@@ -8,17 +8,24 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <link rel="stylesheet" href="./assets/style/style.css">
     <link rel="icon" href="./favicon.ico" type="image/x-icon">
-    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/311c1e9fd6.js" crossorigin="anonymous"></script>
   </head>
 
 
   <body>
     <header>
         <div class="columns is-centered mt-2">
-            <div class="column is-11">
+            <div class="column is-6">
                 <div class="has-background-primary-dark round p-2">
                     <h1 class="title has-text-white centered">Weather Dashboard</h1>
                     <h2 class="subtitle has-text-white centered">Powered by OpenWeatherMap</h2>
+                </div>
+            </div>
+            <div class="column is-5">
+                <div class="has-background-primary-light round p-2">
+                    <h1 class="title has-text-primary-dark">Wednesday Oct 18</h1>
+                    <h2 class="subtitle has-text-primary-dark">2:53 PM</h2>
                 </div>
             </div>
         </div>
@@ -27,8 +34,8 @@
     <main>
         <div class="columns is-centered">
             <!-- Left-side container for search & history -->
-            <div class="column is-4">
-                    <div class="field round has-background-primary-dark p-2">
+            <div class="column is-3">
+                    <div class="field round has-background-primary p-2">
                         <label class="label has-text-white">Search by City:</label>
                         <div class="p-1">
                             <!-- Container for textinput + Go button -->
@@ -45,7 +52,7 @@
 
                     <!-- Nested Column for history section -->
                     <div class="column p-0">
-                        <label class="label has-text-primary">Recent:</label>
+                        <label class="label has-text-primary-dark">Recent:</label>
                         <!-- Container for appending the "historyCard" items -->
                         <div id="history">
                             <!-- Example of "historyCard" -->
@@ -57,10 +64,139 @@
             </div>
 
             <!-- Right-side container for Current weather + 5-day forecast -->
-            <div class="column is-7">
-                <div class="round has-background-primary p-2">
-                    <h2 class="label">Current Weather:</h2>
+            <div class="column is-8">
+                <div class="round has-background-primary p-2 mb-2">
+                    <h2 class="label has-text-white">Current Weather:</h2>
+                    <div class="p-2" id="currentWeather">
+                        <h1 class="title has-text-white" id="currentCity">City Name</h1>
+                        <div class="columns is-centered">
+                            <div class="column">
+                                <h2 class="title is-4 has-text-white" id="temp">12&deg;</h2>
+                            </div>
+                            <div class="column">
+                                <h2 class="subtitle is-5 has-text-white" id="wind">Wind: 6.2 MPH</h2>
+                            </div>
+                            <div class="column">
+                                <h2 class="subtitle is-5 has-text-white" id="humidity">Humidity: 42%</h2>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
+                <div class="rp-2 mb-2">
+                    <h2 class="label has-text-primary-dark">5-Day Forecast:</h2>
+                </div>
+
+                <div class="columns is-mobile">
+                    <div class="column is-one-fifth-mobile">
+                        <div class="has-background-primary round p-2" id="day1">
+                            <h1 class="title is-4 has-text-white">Mon</h1>
+                            <div class="columns">
+                                <div class="column">
+                                    <h2 class="title is-5 has-text-white" id="temp">999&deg; 
+                                        <i class="fa-solid fa-cloud"></i>
+                                    </h2>
+                                </div>
+
+                            </div>
+                            <div class="columns">
+                                <div class="column">
+                                    <h2 class="subtitle is-7 has-text-white" id="humidity">W: 12MPH</h2>
+                                </div>
+                                <div class="column">
+                                    <h2 class="subtitle is-7 has-text-white" id="humidity">H: 42%</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="column is-one-fifth-mobile">
+                        <div class="has-background-primary round p-2" id="day2">
+                            <h1 class="title is-4 has-text-white">Tue</h1>
+                            <div class="columns">
+                                <div class="column">
+                                    <h2 class="title is-5 has-text-white" id="temp">999&deg; 
+                                        <i class="fa-solid fa-cloud"></i>
+                                    </h2>
+                                </div>
+
+                            </div>
+                            <div class="columns">
+                                <div class="column">
+                                    <h2 class="subtitle is-7 has-text-white" id="humidity">W: 12MPH</h2>
+                                </div>
+                                <div class="column">
+                                    <h2 class="subtitle is-7 has-text-white" id="humidity">H: 42%</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="column is-one-fifth-mobile">
+                        <div class="has-background-primary round p-2" id="day3">
+                            <h1 class="title is-4 has-text-white">Wed</h1>
+                            <div class="columns">
+                                <div class="column">
+                                    <h2 class="title is-5 has-text-white" id="temp">999&deg; 
+                                        <i class="fa-solid fa-cloud"></i>
+                                    </h2>
+                                </div>
+
+                            </div>
+                            <div class="columns">
+                                <div class="column">
+                                    <h2 class="subtitle is-7 has-text-white" id="humidity">W: 12MPH</h2>
+                                </div>
+                                <div class="column">
+                                    <h2 class="subtitle is-7 has-text-white" id="humidity">H: 42%</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="column is-one-fifth-mobile">
+                        <div class="has-background-primary round p-2" id="day4">
+                            <h1 class="title is-4 has-text-white">Thu</h1>
+                            <div class="columns">
+                                <div class="column">
+                                    <h2 class="title is-5 has-text-white" id="temp">999&deg; 
+                                        <i class="fa-solid fa-cloud"></i>
+                                    </h2>
+                                </div>
+
+                            </div>
+                            <div class="columns">
+                                <div class="column">
+                                    <h2 class="subtitle is-7 has-text-white" id="humidity">W: 12MPH</h2>
+                                </div>
+                                <div class="column">
+                                    <h2 class="subtitle is-7 has-text-white" id="humidity">H: 42%</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="column is-one-fifth-mobile">
+                        <div class="has-background-primary round p-2" id="day5">
+                            <h1 class="title is-4 has-text-white">Fri</h1>
+                            <div class="columns">
+                                <div class="column">
+                                    <h2 class="title is-5 has-text-white" id="temp">999&deg; 
+                                        <i class="fa-solid fa-cloud"></i>
+                                    </h2>
+                                </div>
+
+                            </div>
+                            <div class="columns">
+                                <div class="column">
+                                    <h2 class="subtitle is-7 has-text-white" id="humidity">W: 12MPH</h2>
+                                </div>
+                                <div class="column">
+                                    <h2 class="subtitle is-7 has-text-white" id="humidity">H: 42%</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
             </div>
         </div>
     </main>
