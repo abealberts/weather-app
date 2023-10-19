@@ -5,11 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Weather App</title>
+    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <link rel="stylesheet" href="./assets/style/style.css">
-    <link rel="icon" href="./favicon.ico" type="image/x-icon">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/311c1e9fd6.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1/dayjs.min.js"></script>
+    <script>dayjs().format()</script>
   </head>
 
 
@@ -89,110 +92,110 @@
 
                 <div class="columns is-mobile">
                     <div class="column is-one-fifth-mobile">
-                        <div class="has-background-primary round p-2" id="day1">
+                        <div class="has-background-primary round p-2 forecastBlock" id="day1">
                             <h1 class="title is-4 has-text-white forecastDay">Mon</h1>
                             <div class="columns">
                                 <div class="column">
-                                    <h2 class="title is-5 has-text-white" id="temp">999&deg; 
-                                        <i class="fa-solid fa-cloud"></i>
+                                    <h2 class="title is-5 has-text-white forecastTemp">999&deg; 
+                                        <i class="fa-solid fa-cloud forecastIcon"></i>
                                     </h2>
                                 </div>
 
                             </div>
                             <div class="columns">
                                 <div class="column">
-                                    <h2 class="subtitle is-7 has-text-white" id="humidity">W: 12MPH</h2>
+                                    <h2 class="subtitle is-7 has-text-white forecastWind">W: 12MPH</h2>
                                 </div>
                                 <div class="column">
-                                    <h2 class="subtitle is-7 has-text-white" id="humidity">H: 42%</h2>
+                                    <h2 class="subtitle is-7 has-text-white forecastHumidity">H: 42%</h2>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <div class="column is-one-fifth-mobile">
-                        <div class="has-background-primary round p-2" id="day2">
-                            <h1 class="title is-4 has-text-white">Tue</h1>
+                        <div class="has-background-primary round p-2 forecastBlock" id="day2">
+                            <h1 class="title is-4 has-text-white forecastDay">Tue</h1>
                             <div class="columns">
                                 <div class="column">
-                                    <h2 class="title is-5 has-text-white" id="temp">999&deg; 
-                                        <i class="fa-solid fa-cloud"></i>
+                                    <h2 class="title is-5 has-text-white forecastTemp">999&deg; 
+                                        <i class="fa-solid fa-cloud forecastIcon"></i>
                                     </h2>
                                 </div>
 
                             </div>
                             <div class="columns">
                                 <div class="column">
-                                    <h2 class="subtitle is-7 has-text-white" id="humidity">W: 12MPH</h2>
+                                    <h2 class="subtitle is-7 has-text-white forecastWind">W: 12MPH</h2>
                                 </div>
                                 <div class="column">
-                                    <h2 class="subtitle is-7 has-text-white" id="humidity">H: 42%</h2>
+                                    <h2 class="subtitle is-7 has-text-white forecastHumidity">H: 42%</h2>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <div class="column is-one-fifth-mobile">
-                        <div class="has-background-primary round p-2" id="day3">
-                            <h1 class="title is-4 has-text-white">Wed</h1>
+                        <div class="has-background-primary round p-2 forecastBlock" id="day3">
+                            <h1 class="title is-4 has-text-white forecastDay">Wed</h1>
                             <div class="columns">
                                 <div class="column">
-                                    <h2 class="title is-5 has-text-white" id="temp">999&deg; 
-                                        <i class="fa-solid fa-cloud"></i>
+                                    <h2 class="title is-5 has-text-white forecastTemp">999&deg; 
+                                        <i class="fa-solid fa-cloud forecastIcon"></i>
                                     </h2>
                                 </div>
 
                             </div>
                             <div class="columns">
                                 <div class="column">
-                                    <h2 class="subtitle is-7 has-text-white" id="humidity">W: 12MPH</h2>
+                                    <h2 class="subtitle is-7 has-text-white forecastWind">W: 12MPH</h2>
                                 </div>
                                 <div class="column">
-                                    <h2 class="subtitle is-7 has-text-white" id="humidity">H: 42%</h2>
+                                    <h2 class="subtitle is-7 has-text-white forecastHumidity">H: 42%</h2>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <div class="column is-one-fifth-mobile">
-                        <div class="has-background-primary round p-2" id="day4">
-                            <h1 class="title is-4 has-text-white">Thu</h1>
+                        <div class="has-background-primary round p-2 forecastBlock" id="day4">
+                            <h1 class="title is-4 has-text-white forecastDay">Thu</h1>
                             <div class="columns">
                                 <div class="column">
-                                    <h2 class="title is-5 has-text-white" id="temp">999&deg; 
-                                        <i class="fa-solid fa-cloud"></i>
+                                    <h2 class="title is-5 has-text-white forecastTemp">999&deg; 
+                                        <i class="fa-solid fa-cloud forecastIcon"></i>
                                     </h2>
                                 </div>
 
                             </div>
                             <div class="columns">
                                 <div class="column">
-                                    <h2 class="subtitle is-7 has-text-white" id="humidity">W: 12MPH</h2>
+                                    <h2 class="subtitle is-7 has-text-white forecastWind">W: 12MPH</h2>
                                 </div>
                                 <div class="column">
-                                    <h2 class="subtitle is-7 has-text-white" id="humidity">H: 42%</h2>
+                                    <h2 class="subtitle is-7 has-text-white forecastHumidity">H: 42%</h2>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <div class="column is-one-fifth-mobile">
-                        <div class="has-background-primary round p-2" id="day5">
-                            <h1 class="title is-4 has-text-white">Fri</h1>
+                        <div class="has-background-primary round p-2 forecastBlock" id="day5">
+                            <h1 class="title is-4 has-text-white forecastDay">Fri</h1>
                             <div class="columns">
                                 <div class="column">
-                                    <h2 class="title is-5 has-text-white" id="temp">999&deg; 
-                                        <i class="fa-solid fa-cloud"></i>
+                                    <h2 class="title is-5 has-text-white forecastTemp">999&deg; 
+                                        <i class="fa-solid fa-cloud forecastIcon"></i>
                                     </h2>
                                 </div>
 
                             </div>
                             <div class="columns">
                                 <div class="column">
-                                    <h2 class="subtitle is-7 has-text-white" id="humidity">W: 12MPH</h2>
+                                    <h2 class="subtitle is-7 has-text-white forecastWind">W: 12MPH</h2>
                                 </div>
                                 <div class="column">
-                                    <h2 class="subtitle is-7 has-text-white" id="humidity">H: 42%</h2>
+                                    <h2 class="subtitle is-7 has-text-white forecastHumidity">H: 42%</h2>
                                 </div>
                             </div>
                         </div>
