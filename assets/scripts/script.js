@@ -1,13 +1,3 @@
-// To do:
-
-// Add function to use textinput value to make an API call to grab weather instanceof
-
-// Add function that updates html elements with API Response
-
-// Add function that saves and renders search inputs to the history container
-
-// Add function for when a user clicks on a history item it updates data to that city
-
 $(function () {
 
 const forecastEndpoint = "https://api.openweathermap.org/data/2.5/forecast?units=imperial";
@@ -16,24 +6,35 @@ const apiKey = "c4677e246eb6585329412dc66d55ff47";
 
 var cityInput = "Madison";
 
+var userData = [];
+
 async function updateWeather(){
     const response = await fetch(weatherEndpoint + `&appid=${apiKey}` + `&q=${cityInput}`)
-    var data = await response.json();
-    var weather = data.weather[0].main
 
-    $("#currentCity").html(data.name);
-    $("#currentTemp").html(data.main.temp + "&deg;");
-    $("#currentWind").html("Wind: " + data.wind.speed + " MPH");
-    $("#currentHumidity").html("Humidity: " + data.main.humidity + "%");
-
-    if (weather == "Clouds"){
-        $("#currentCity").append(` <i class="fa-solid fa-cloud"></i>`);
-    } else if (weather == "Clear"){
-        $("#currentCity").append(` <i class="fa-solid fa-sun"></i>`);
-    } else if (weather == "Rain"){
-        $("#currentCity").append(` <i class="fa-solid fa-umbrella"></i>`);
+    if (response.status <= 199 || response.status >= 300){
+        $("#userSearch").val("");
+        $("#userSearch").attr("placeholder", "ERROR - City Not Found");
     } else {
-        $("#currentCity").append(` <i class="fa-solid fa-circle-question"></i>`);
+        var data = await response.json();
+        var weather = data.weather[0].main
+    
+        $("#currentCity").html(data.name);
+        $("#currentTemp").html(data.main.temp + "&deg;");
+        $("#currentWind").html("Wind: " + data.wind.speed + " MPH");
+        $("#currentHumidity").html("Humidity: " + data.main.humidity + "%");
+    
+        if (weather == "Clouds"){
+            $("#currentCity").append(` <i class="fa-solid fa-cloud"></i>`);
+        } else if (weather == "Clear"){
+            $("#currentCity").append(` <i class="fa-solid fa-sun"></i>`);
+        } else if (weather == "Rain"){
+            $("#currentCity").append(` <i class="fa-solid fa-umbrella"></i>`);
+        } else {
+            $("#currentCity").append(` <i class="fa-solid fa-circle-question"></i>`);
+        }
+
+        saveHistory();
+        updateForecast();
     }
 }
 
@@ -71,11 +72,61 @@ async function updateForecast(){
         } else {
             tempEl.append(` <i class="fa-solid fa-circle-question"></i>`);
         }
-        console.log(weather);
         i = i + 8;
     });
 
     i = 0;
+}
+
+function renderHistory(){
+    resetHistory();
+    userData = JSON.parse(localStorage.getItem("userData")) || [];
+
+    for (let i = 0; i < userData.length; i++) {
+        $("#history").append(`<div class="historyCard has-background-primary round p-2 mb-2" id="${i}"><p class="title is-4 has-text-white"><button class="button is-primary is-rounded is-small deleteBtn"><span class="icon is-small"><i class="fas fa-trash"></i></span></button> ${userData[i]}</p></div>`)
+    }
+
+    $(".deleteBtn").click(function(){
+
+        var id = $(this).parent().parent().attr("id");
+        $(this).parent().parent().remove();
+
+        userData.splice(id, 1);
+
+        console.log(userData);
+        console.log(id);
+
+        localStorage.setItem("userData", JSON.stringify(userData));
+        renderHistory();
+    })
+
+    $(".historyCard").click(function(){
+        var id = $(this).attr("id");
+        cityInput = userData[id];
+
+        updateWeather();
+    })
+}
+
+function saveHistory(){
+    if ($("#userSearch").val() == "") {
+        return;
+    } else {
+        userData = JSON.parse(localStorage.getItem("userData")) || [];
+        userData.push($("#userSearch").val());
+        localStorage.setItem("userData", JSON.stringify(userData));
+
+        renderHistory();
+    }
+
+    $("#userSearch").val("");
+    $("#userSearch").attr("placeholder", "City Name");
+}
+
+function resetHistory(){
+    if($("#history").children){
+        $("#history").empty();
+    }
 }
 
 $("#searchButton").click(function(){
@@ -83,11 +134,11 @@ $("#searchButton").click(function(){
     console.log(cityInput);
 
     updateWeather();
-    updateForecast();
 })
 
 updateWeather();
 updateForecast();
+renderHistory();
 
 });
 
