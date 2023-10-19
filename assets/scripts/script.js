@@ -8,9 +8,11 @@ var cityInput = "Madison";
 
 var userData = [];
 
+//API call for weather
 async function updateWeather(){
     const response = await fetch(weatherEndpoint + `&appid=${apiKey}` + `&q=${cityInput}`)
 
+    //If User input returns an invalid response, give error // else, update html to reflect response
     if (response.status <= 199 || response.status >= 300){
         $("#userSearch").val("");
         $("#userSearch").attr("placeholder", "ERROR - City Not Found");
@@ -38,6 +40,7 @@ async function updateWeather(){
     }
 }
 
+//API call for forecast
 async function updateForecast(){
     const response = await fetch(forecastEndpoint + `&appid=${apiKey}` + `&q=${cityInput}`)
     var data = await response.json();
@@ -78,6 +81,7 @@ async function updateForecast(){
     i = 0;
 }
 
+//renders saved searches and adds event listeners to appended elements
 function renderHistory(){
     resetHistory();
     userData = JSON.parse(localStorage.getItem("userData")) || [];
@@ -86,6 +90,7 @@ function renderHistory(){
         $("#history").append(`<div class="historyCard has-background-primary round p-2 mb-2" id="${i}"><p class="title is-4 has-text-white"><button class="button is-primary is-rounded is-small deleteBtn"><span class="icon is-small"><i class="fas fa-trash"></i></span></button> ${userData[i]}</p></div>`)
     }
 
+    //deletes saved location and removes from local storage
     $(".deleteBtn").click(function(){
 
         var id = $(this).parent().parent().attr("id");
@@ -100,6 +105,7 @@ function renderHistory(){
         renderHistory();
     })
 
+    // updates weather with saved location
     $(".historyCard").click(function(){
         var id = $(this).attr("id");
         cityInput = userData[id];
@@ -108,6 +114,7 @@ function renderHistory(){
     })
 }
 
+//sends userData to local storage and resets text input field
 function saveHistory(){
     if ($("#userSearch").val() == "") {
         return;
@@ -123,12 +130,14 @@ function saveHistory(){
     $("#userSearch").attr("placeholder", "City Name");
 }
 
+//clears rendered locations
 function resetHistory(){
     if($("#history").children){
         $("#history").empty();
     }
 }
 
+//event listener for search button
 $("#searchButton").click(function(){
     cityInput = $("#userSearch").val();
     console.log(cityInput);
@@ -136,11 +145,13 @@ $("#searchButton").click(function(){
     updateWeather();
 })
 
+//updates time *shrugs*
 function updateTime(){
     $("#headerDate").html(dayjs().format("dddd, MMM D"));
     $("#headerTime").html(dayjs().format("h:mm A"));
 }
 
+//time interval for clock updates
 setInterval(updateTime, 10000);
 
 updateWeather();

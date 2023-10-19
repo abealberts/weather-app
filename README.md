@@ -19,4 +19,4 @@ Simple Weather App is a basic weather application using the OpenWeatherMap API.
 
 #### Screenshot:
 
-![weather app screenshot](./assets/images/weather-app-sc.png)
+![weather app screenshot](./assets/images/weather-app-sc2.png)
