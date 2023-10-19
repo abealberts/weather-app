@@ -136,9 +136,17 @@ $("#searchButton").click(function(){
     updateWeather();
 })
 
+function updateTime(){
+    $("#headerDate").html(dayjs().format("dddd, MMM D"));
+    $("#headerTime").html(dayjs().format("h:mm A"));
+}
+
+setInterval(updateTime, 10000);
+
 updateWeather();
 updateForecast();
 renderHistory();
+updateTime();
 
 });
 
